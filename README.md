@@ -1,4 +1,4 @@
-_OWL is a command-line tool designed to analyze AndroidManifest.xml files. It helps developers and security researchers identify potential vulnerabilities and misconfigurations in Android applications._
+_**OWLL** is a command-line tool designed to analyze AndroidManifest.xml files. It helps developers and security researchers identify potential vulnerabilities and misconfigurations in Android applications._
 
 **Features**
 
