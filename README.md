@@ -12,7 +12,7 @@ Key Attribute Validation: Checks attributes like allowBackup, debuggable, and us
 
 Detailed Summary: Provides a concise summary of findings.
 
-**Installtion**
+**Installation**
 
 pip install owll
 
