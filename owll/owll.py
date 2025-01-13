@@ -49,7 +49,7 @@ def display_banner():
     banner = f"""
     {GREEN_COLOR}#      (o,o)  OWLL: Android Defender
     #      {{ " }}  Checking permissions like a boss!
-    #      -"-"-  Author: Jina{RESET_COLOR}
+    #      -"-"-  Author: Jina Version: 1.1.2{RESET_COLOR}
     """
     print(banner)
 
@@ -141,6 +141,16 @@ def check_exported_components(manifest_path):
     return warnings
 
 
+def get_package_name(manifest_path):
+    """
+    Extract the package name from the manifest tag.
+    """
+    tree = ET.parse(manifest_path)
+    root = tree.getroot()
+
+    return root.attrib.get("package")  # 'package' is an attribute of the <manifest> tag
+
+
 def main():
     display_banner()  # Display banner at the start
 
@@ -149,6 +159,9 @@ def main():
     if not os.path.exists(manifest_path):
         print(f"{RED_COLOR}File not found: {manifest_path}{RESET_COLOR}")
         return
+
+    # Extract package name
+    package_name = get_package_name(manifest_path)
 
     # Parse permissions
     permissions = parse_permissions(manifest_path)
@@ -225,6 +238,7 @@ def main():
 
     # Detailed Summary Box
     print(f"\n{GREEN_COLOR}Detailed Summary:{RESET_COLOR}")
+    print(f"{YELLOW_COLOR}Package Name: {package_name if package_name else 'Not specified'}{RESET_COLOR}")
     print(f"{YELLOW_COLOR}Total Permissions: {len(permissions)}{RESET_COLOR}")
     print(f"{YELLOW_COLOR}Total Dangerous Permissions: {len(dangerous_permissions)}{RESET_COLOR}")
     print(f"{YELLOW_COLOR}Exported Components Found: {len(exported_warnings)}{RESET_COLOR}")
