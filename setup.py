@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="owll",
-    version="1.1.0",
+    version="1.1.2",
     author="Jina",
     description="OWLL: AndroidManifest.xml Analyzer",
     packages=find_packages(),
